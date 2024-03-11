@@ -1,4 +1,4 @@
-Portfolio web con Astro
+<h1>Portfolio web con Astro </h1>
 
 <p>
 Basado en el diseño de <a href="https://github.com/BartoszJarocki/cv">Bartosz Jarocki</a> y también en el tutorial de <a href="https://github.com/midudev">Miguel Ángel Durán</a>
