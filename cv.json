@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Luis José Monzón Pedreira",
-    "label": "Full Stack Developer con más de 2 años de experiencia",
+    "label": "Full Stack Developer",
     "image": "/cv.webp",
     "email": "luismonzon4609@gmail.com",
     "phone": "+34 688888888",
     "url": "https://github.com/Luis4609",
-    "summary": " años de experiencia como Desarrollador Web.",
+    "summary": "Desarrollador Full Stack centrado en el desarrollo backend en el ámbito de Java y el framework Spring",
     "location": {
       "address": "",
       "postalCode": "08820",
@@ -70,6 +70,18 @@
       "courses": [
         "DB1101 - Basic SQL"
       ]
+    },
+    {
+      "institution": "Universidad Pólitecnica de Madrid UPA",
+      "url": "https://iesclaradelrey.es/portal/index.php/es/",
+      "area": "Grado en matemáticas e informática",
+      "studyType": "Grado",
+      "startDate": "2014-09",
+      "endDate": "Actualidad",
+      "score": "",
+      "courses": [
+        "DB1101 - Basic SQL"
+      ]
     }
   ],
   "awards": [
@@ -99,34 +111,7 @@
   ],
   "skills": [
     {
-      "name": "HTML",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend"
-      ]
-    },
-    {
-      "name": "CSS",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "JavaScript",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "Backend",
-        "Fullstack"
-      ]
-    },
-    {
-      "name": "Tailwind",
+      "name": "Java",
       "level": "Avanzado",
       "keywords": [
         "Desarrollo Web",
@@ -136,7 +121,7 @@
       ]
     },
     {
-      "name": "TypeScript",
+      "name": "Spring",
       "level": "Avanzado",
       "keywords": [
         "Desarrollo Web",
@@ -146,53 +131,30 @@
       ]
     },
     {
-      "name": "Node",
-      "level": "Avanzado",
+      "name": "HTML",
+      "level": "Medio",
       "keywords": [
         "Desarrollo Web",
-        "Backend",
-        "JavaScript",
-        "Servidor"
+        "Frontend"
       ]
     },
     {
-      "name": "MySQL",
-      "level": "Avanzado",
-      "keywords": [
-        "Bases de Datos",
-        "SQL",
-        "Almacenamiento de Datos",
-        "Backend"
-      ]
-    },
-    {
-      "name": "Git",
-      "level": "Avanzado",
-      "keywords": [
-        "Control de Versiones",
-        "Colaboración",
-        "Código Fuente"
-      ]
-    },
-    {
-      "name": "GitHub",
-      "level": "Avanzado",
-      "keywords": [
-        "Control de Versiones",
-        "Colaboración",
-        "Código Fuente",
-        "Git"
-      ]
-    },
-    {
-      "name": "Next.js",
-      "level": "Avanzado",
+      "name": "CSS",
+      "level": "Medio",
       "keywords": [
         "Desarrollo Web",
         "Frontend",
-        "React Framework",
-        "SSR",
-        "Static Generation"
+        "Diseño Responsive"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Medio",
+      "keywords": [
+        "Desarrollo Web",
+        "Frontend",
+        "Backend",
+        "Fullstack"
       ]
     },
     {
@@ -203,6 +165,46 @@
         "Frontend",
         "JavaScript Library",
         "UI"
+      ]
+    },
+    {
+      "name": "SQL",
+      "level": "Medio",
+      "keywords": [
+        "Bases de Datos",
+        "SQL",
+        "Almacenamiento de Datos",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "level": "Medio",
+      "keywords": [
+        "Control de Versiones",
+        "Colaboración",
+        "Código Fuente"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "level": "Medio",
+      "keywords": [
+        "Control de Versiones",
+        "Colaboración",
+        "Código Fuente",
+        "Git"
+      ]
+    },
+    {
+      "name": "Next.js",
+      "level": "Medio",
+      "keywords": [
+        "Desarrollo Web",
+        "Frontend",
+        "React Framework",
+        "SSR",
+        "Static Generation"
       ]
     }
   ],
