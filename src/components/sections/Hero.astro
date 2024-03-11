@@ -9,7 +9,6 @@ import X from "@/icons/X.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import GitHub from "@/icons/GitHub.astro";
 
-
 const { name, label, image, location, profiles, phone, email } = basics;
 const { city, region } = location;
 
@@ -18,6 +17,11 @@ const SOCIAL_ICONS: Record<string, any> = {
   LinkedIn,
   X,
 };
+
+const linkedInInfo = profiles.find(({ network }) => network === "LinkedIn");
+const linkedInUrl = linkedInInfo?.url;
+
+const printInfo = [email, phone, linkedInUrl].filter(Boolean).join("\u2022");
 ---
 
 <Section>
@@ -26,8 +30,12 @@ const SOCIAL_ICONS: Record<string, any> = {
       <h1>{name}</h1>
       <h2>{label}</h2>
 
-      <span><WorldMap/>{city}, {region}</span>
-      <footer>
+      <span><WorldMap />{city}, {region}</span>
+
+      <footer class="print">
+        {printInfo}
+      </footer>
+      <footer class="no-print">
         {
           email && (
             <a
@@ -85,6 +93,12 @@ const SOCIAL_ICONS: Record<string, any> = {
     justify-content: space-between;
     gap: 1rem;
   }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 32px;
+  }
 
   h1 {
     font-size: 2rem;
@@ -102,5 +116,53 @@ const SOCIAL_ICONS: Record<string, any> = {
     object-fit: cover;
     width: 128px;
     border-radius: 16px;
+  }
+
+  span {
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  footer {
+    color: #555;
+    font-size: 0.65rem;
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  footer a {
+    color: #777;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    padding: 4px;
+    height: 32px;
+    width: 32px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  footer a:hover {
+    background: #eee;
+    border: 1px solid #ddd;
+  }
+
+  .print {
+    display: none;
+  }
+
+  @media print {
+    .print {
+      display: block;
+    }
+
+    .no-print {
+      display: none;
+    }
   }
 </style>
