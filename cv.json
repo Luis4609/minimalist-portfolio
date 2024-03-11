@@ -34,23 +34,12 @@
   },
   "work": [
     {
-      "name": "midudev",
-      "position": "Divulgador sobre Programación Web",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2021-01-01",
+      "name": "Optimissa",
+      "position": "Java Backend Developer",
+      "url": "",
+      "startDate": "2022-06-06",
       "endDate": null,
-      "summary": "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
-      "highlights": [
-        "Started the company"
-      ]
-    },
-    {
-      "name": "Adevinta",
-      "position": "Lead Frontend Architect",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2016-06-01",
-      "endDate": "2022-09-01",
-      "summary": "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
+      "summary": "",
       "highlights": [
         "Started the company"
       ]
@@ -71,13 +60,13 @@
   ],
   "education": [
     {
-      "institution": "Universitat Oberta de Catalunya",
-      "url": "https://www.uoc.edu/portal/es/index.html",
-      "area": "Ingeniero de Software",
-      "studyType": "Bachelor",
-      "startDate": "2003-01-01",
-      "endDate": "2009-01-01",
-      "score": "4.0",
+      "institution": "IES Clara del Rey",
+      "url": "https://iesclaradelrey.es/portal/index.php/es/",
+      "area": "Desarrollador  de Aplicaciones Web",
+      "studyType": "Formación profesional",
+      "startDate": "2020-10",
+      "endDate": "2024-01",
+      "score": "9",
       "courses": [
         "DB1101 - Basic SQL"
       ]
