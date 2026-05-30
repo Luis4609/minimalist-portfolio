@@ -1,16 +1,68 @@
 ---
 import Section from "@/components/Section.astro";
+import HTML from "@/icons/html.astro";
+import CSS from "@/icons/css.astro";
+import JS from "@/icons/javascript.astro";
+import TS from "@/icons/type.astro";
+import React from "@/icons/react.astro";
+import Node from "@/icons/node.astro";
+import SQL from "@/icons/sql.astro";
+import Git from "@/icons/git.astro";
+import GitHub from "@/icons/GitHub.astro";
+import Next from "@/icons/next.astro";
+import Java from "@/icons/Java.astro";
+import Spring from "@/icons/Spring.astro";
+import Swift from "@/icons/swift.astro";
+import SwiftUI from "@/icons/swiftui.astro";
+import Kotlin from "@/icons/kotlin.astro";
+import Flutter from "@/icons/flutter.astro";
+import Tailwind from "@/icons/tailwind.astro";
 
-import { skills } from "@cv";
+const { cv, lang } = Astro.props;
+const { skills } = cv;
+
+const SKILLS_ICONS: Record<string, any> = {
+  HTML,
+  CSS,
+  JavaScript: JS,
+  TypeScript: TS,
+  React,
+  Node,
+  SQL,
+  Git,
+  GitHub,
+  NextJS: Next,
+  "Next.js": Next,
+  Java,
+  Spring,
+  "Spring Boot": Spring,
+  Swift,
+  SwiftUI,
+  Kotlin,
+  Flutter,
+  Tailwind
+};
+
+const title = lang === "es" ? "Habilidades" : "Skills";
 ---
 
-<Section title="Skills">
-  <ul>
+<Section title={title}>
+  <ul class="categories-list">
     {
-      skills.map(({ name }) => {
+      skills.map(({ name, keywords }: any) => {
         return (
-          <li>
-            <span>{name}</span>
+          <li class="category-item">
+            <strong>{name}:</strong>
+            <div class="tags-list">
+              {keywords.map((keyword: string) => {
+                const Icon = SKILLS_ICONS[keyword];
+                return (
+                  <span class="skill-tag">
+                    {Icon && <Icon />} {keyword}
+                  </span>
+                );
+              })}
+            </div>
           </li>
         );
       })
@@ -19,18 +71,55 @@ import { skills } from "@cv";
 </Section>
 
 <style>
-  ul {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
+  .categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  li {
-    border-radius: 6px;
+  .category-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .category-item strong {
+    color: #222;
+    font-weight: 550;
+    min-width: 200px;
+    display: inline-block;
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    align-items: center;
     background: #eee;
+    border-radius: 6px;
     color: black;
+    display: flex;
     font-size: 0.8rem;
     font-weight: 500;
+    gap: 4px;
     padding: 0.2rem 0.6rem;
+  }
+
+  @media (max-width: 600px) {
+    .category-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    
+    .category-item strong {
+      min-width: auto;
+    }
   }
 </style>

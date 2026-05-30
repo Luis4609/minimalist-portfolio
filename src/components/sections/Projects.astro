@@ -1,19 +1,23 @@
 ---
 import Section from "@/components/Section.astro";
 
-import { projects } from "@cv";
+const { cv, lang } = Astro.props;
+const { projects } = cv;
+
+const title = lang === "es" ? "Proyectos" : "Projects";
+const getLinkTitle = (name: string) => lang === "es" ? `Ver el proyecto ${name}` : `View the project ${name}`;
 ---
 
-<Section title="Proyectos">
+<Section title={title}>
   <ul>
     {
-      projects.map(({ url, description, highlights, name, isActive }) => {
+      projects.map(({ url, description, highlights, name, isActive }: any) => {
         return (
           <li>
             <article>
               <header>
                 <h3>
-                  <a href={url} title={`Ver el proyecto ${name}`}>
+                  <a href={url} title={getLinkTitle(name)} target="_blank" rel="noopener noreferrer">
                     {name}
                   </a>
                   {isActive && <span>&bull;</span>}
@@ -21,7 +25,7 @@ import { projects } from "@cv";
                 <p>{description}</p>
               </header>
               <footer>
-                {highlights.map((highlight) => {
+                {highlights.map((highlight: any) => {
                   return <span>{highlight}</span>;
                 })}
               </footer>

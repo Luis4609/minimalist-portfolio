@@ -1,0 +1,40 @@
+---
+import Section from "@/components/Section.astro";
+
+const { cv, lang } = Astro.props;
+const { languages } = cv;
+
+const title = lang === "es" ? "Idiomas" : "Languages";
+---
+
+{languages && languages.length > 0 && (
+  <Section title={title}>
+    <ul>
+      {
+        languages.map(({ language, fluency }: any) => {
+          return (
+            <li>
+              <strong>{language}</strong>: <span>{fluency}</span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Section>
+)}
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  li {
+    font-size: 0.9rem;
+    color: #444;
+  }
+  strong {
+    color: #111;
+    font-weight: 500;
+  }
+</style>

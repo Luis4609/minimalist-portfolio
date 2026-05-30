@@ -1,0 +1,111 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import About from "@/components/sections/About.astro";
+import Education from "@/components/sections/Education.astro";
+import Experience from "@/components/sections/Experience.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Projects from "@/components/sections/Projects.astro";
+import Skills from "@/components/sections/Skills.astro";
+import KeyboardManager from "@/components/KeyboardManager.astro";
+import Certificates from "@/components/sections/Certificates.astro";
+import Languages from "@/components/sections/Languages.astro";
+
+interface Props {
+  cv: any;
+  lang: "es" | "en";
+}
+
+const { cv, lang } = Astro.props;
+const { basics } = cv;
+const { name, label } = basics;
+---
+
+<Layout title={`${name} - ${label}`}>
+  <div class="lang-selector no-print">
+    <a href="/" class={lang === 'es' ? 'active' : ''} aria-label="Cambiar a Español">ES</a>
+    <span>/</span>
+    <a href="/en" class={lang === 'en' ? 'active' : ''} aria-label="Switch to English">EN</a>
+  </div>
+
+  <main>
+    <Hero cv={cv} lang={lang} />
+    <About cv={cv} lang={lang} />
+    <Experience cv={cv} lang={lang} />
+    <Education cv={cv} lang={lang} />
+    <Certificates cv={cv} lang={lang} />
+    <Skills cv={cv} lang={lang} />
+    <Languages cv={cv} lang={lang} />
+    <Projects cv={cv} lang={lang} />
+  </main>
+
+  <KeyboardManager cv={cv} lang={lang} />
+</Layout>
+
+<style>
+  main {
+    padding: 4rem 2rem;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .lang-selector {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      "Courier New",
+      Courier,
+      monospace;
+    font-size: 0.85rem;
+    background: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    z-index: 10;
+  }
+
+  .lang-selector a {
+    color: #777;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .lang-selector a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .lang-selector a.active {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .lang-selector span {
+    color: #ccc;
+  }
+
+  @media (max-width: 700px) {
+    main {
+      padding: 2rem 1.5rem;
+    }
+
+    .lang-selector {
+      top: 1rem;
+      right: 1.5rem;
+    }
+  }
+
+  @media print {
+    main {
+      padding: 0;
+    }
+  }
+</style>

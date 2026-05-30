@@ -1,37 +1,119 @@
 ---
-import { basics } from "@cv";
+interface Props {
+  cv: any;
+  lang: "es" | "en";
+}
 
-const { profiles } = basics;
+const { cv, lang } = Astro.props;
+const { basics } = cv;
+const { profiles, email, phone } = basics;
 
+const footerText = lang === "es" 
+  ? "Pulse CMD + K para abrir la paleta de comandos"
+  : "Press CMD + K to open the command palette";
 
+const placeholderText = lang === "es"
+  ? "Buscar lista de comandos disponibles"
+  : "Search available commands";
 ---
 
-<footer>
-  Pulse <kbd>CMD</kbd> + <kbd>K</kbd> para abrir la paleta de comandos
+<footer class="no-print">
+  {footerText}
 </footer>
-<ninja-keys placeholder="Buscar lista de comandos disponibles"></ninja-keys>
+
+<ninja-keys 
+  id="ninja-keys-palette"
+  placeholder={placeholderText}
+  data-lang={lang}
+  data-profiles={JSON.stringify(profiles)}
+  data-email={email}
+  data-phone={phone}
+  class="no-print"
+></ninja-keys>
 
 <script>
   import "ninja-keys";
 
-  const ninja = document.querySelector("ninja-keys");
+  const ninja = document.getElementById("ninja-keys-palette") as any;
 
   if (ninja !== null) {
-    ninja.data = [
-      {
-        id: "print",
-        title: "Imprimir",
-        hotkey: "ctrl+P",
-        icon: `<svg style="margin-right: 8px" width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+    const lang = ninja.getAttribute("data-lang");
+    const email = ninja.getAttribute("data-email");
+    const phone = ninja.getAttribute("data-phone");
+    const profiles = JSON.parse(ninja.getAttribute("data-profiles") || "[]");
+
+    const commands: any[] = [];
+
+    // Print Command
+    const printTitle = lang === "es" ? "Imprimir" : "Print";
+    const printSection = lang === "es" ? "Acciones" : "Actions";
+    commands.push({
+      id: "print",
+      title: printTitle,
+      hotkey: "ctrl+P",
+      icon: `<svg style="margin-right: 8px" width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z" />
-</svg>
-`,
-        section: "Acciones",
-        handler: () => {
-          window.print();
-        },
+</svg>`,
+      section: printSection,
+      handler: () => {
+        window.print();
       },
-    ];
+    });
+
+    // Language Change Command
+    const langTitle = lang === "es" ? "Cambiar idioma a Inglés" : "Switch language to Spanish";
+    const langDest = lang === "es" ? "/en" : "/";
+    commands.push({
+      id: "change-lang",
+      title: langTitle,
+      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h7M9 3v2M4 11a12.912 12.912 0 0 0 5.275 7.15c.677-.45 1.25-1.075 1.725-1.9m-1.725 1.9a13.3 13.3 0 0 1-4.7-4.7M14 21v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4M14 17h10"/></svg>`,
+      section: printSection,
+      handler: () => {
+        window.location.href = langDest;
+      },
+    });
+
+    // Contact Commands
+    const contactSection = lang === "es" ? "Contacto" : "Contact";
+    if (email) {
+      commands.push({
+        id: "email",
+        title: lang === "es" ? `Enviar email (${email})` : `Send email (${email})`,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+        section: contactSection,
+        handler: () => {
+          window.open(`mailto:${email}`, "_blank");
+        },
+      });
+    }
+
+    if (phone) {
+      commands.push({
+        id: "phone",
+        title: lang === "es" ? `Llamar por teléfono (${phone})` : `Call phone (${phone})`,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+        section: contactSection,
+        handler: () => {
+          window.open(`tel:${phone}`, "_blank");
+        },
+      });
+    }
+
+    // Social Commands
+    const socialSection = lang === "es" ? "Redes Sociales" : "Social Profiles";
+    profiles.forEach((profile: any) => {
+      commands.push({
+        id: `social-${profile.network.toLowerCase()}`,
+        title: lang === "es" ? `Visitar ${profile.network}` : `Visit ${profile.network}`,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>`,
+        section: socialSection,
+        handler: () => {
+          window.open(profile.url, "_blank");
+        },
+      });
+    });
+
+    ninja.data = commands;
   }
 </script>
 
@@ -52,9 +134,18 @@ const { profiles } = basics;
     position: fixed;
     bottom: 0px;
     width: 100%;
+    left: 0;
     text-align: center;
     padding-block: 8px;
     font-size: 0.85rem;
+    z-index: 100;
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      "Courier New",
+      Courier,
+      monospace;
   }
 
   kbd {

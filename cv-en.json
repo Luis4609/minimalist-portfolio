@@ -1,0 +1,140 @@
+{
+  "basics": {
+    "name": "Luis Monzón",
+    "label": "Backend Software Engineer | Distributed Systems | Event-Driven Architectures | Scalable Platforms",
+    "image": "",
+    "email": "luismonzon4609@gmail.com",
+    "phone": "+34 647564130",
+    "url": "https://github.com/tu-github",
+    "summary": "Backend Software Engineer with 4+ years of experience building and scaling distributed, event-driven systems. Strong focus on high-throughput architectures (Kafka, RabbitMQ) processing 100K+ events/day. Experienced in end-to-end software lifecycle ownership, including design, implementation, deployment, and production support. Passionate about building reliable, scalable systems with strong performance and operational excellence.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Madrid",
+      "countryCode": "ES",
+      "region": "Spain"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "tu-linkedin",
+        "url": "https://www.linkedin.com/in/tu-linkedin"
+      },
+      {
+        "network": "GitHub",
+        "username": "tu-github",
+        "url": "https://github.com/tu-github"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Minsait",
+      "position": "Software Engineer",
+      "url": "",
+      "startDate": "2024-07",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Owned end-to-end development lifecycle of a distributed billing platform processing 100K+ events/day in production",
+        "Designed and implemented event-driven architecture using Kafka and RabbitMQ for scalable, decoupled systems",
+        "Improved system performance by 15% through payload optimization and parallel consumer processing",
+        "Built microservices for audit, billing, and document management with focus on reliability and extensibility",
+        "Designed and implemented resilience patterns including Dead Letter Queues (DLQ) and retry mechanisms",
+        "Deployed and operated services in OpenShift, ensuring high availability and production stability",
+        "Collaborated with cross-functional teams to define requirements and deliver production-ready features"
+      ]
+    },
+    {
+      "name": "Optimissa",
+      "position": "Junior Backend Engineer",
+      "url": "",
+      "startDate": "2022-06",
+      "endDate": "2024-07",
+      "summary": "",
+      "highlights": [
+        "Developed backend systems for large financial institutions (BBVA, BME) in high-reliability environments",
+        "Implemented business-critical features using Java, Spring Boot, and Python",
+        "Participated in full SDLC: design, development, testing, deployment, and production support",
+        "Improved system stability by identifying and resolving critical production incidents",
+        "Collaborated with senior engineers in debugging and architectural improvements"
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "UNIR",
+      "url": "",
+      "area": "Computer Engineering",
+      "studyType": "B.Sc.",
+      "startDate": "2024",
+      "endDate": "2028",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "IES Clara del Rey",
+      "url": "https://iesclaradelrey.es/portal/index.php/es/",
+      "area": "Web Development",
+      "studyType": "Vocational Training",
+      "startDate": "2020",
+      "endDate": "2024",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "UPM",
+      "url": "https://www.upm.es/",
+      "area": "Mathematics & Computer Science",
+      "studyType": "Degree",
+      "startDate": "",
+      "endDate": "",
+      "score": "",
+      "courses": [],
+      "summary": "3 years completed"
+    }
+  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["Java", "Python"]
+    },
+    {
+      "name": "Backend & Distributed Systems",
+      "keywords": ["Spring Boot", "Microservices", "Event-Driven Architecture"]
+    },
+    {
+      "name": "Messaging & Streaming",
+      "keywords": ["Kafka", "RabbitMQ"]
+    },
+    {
+      "name": "Databases",
+      "keywords": ["SQL", "MongoDB"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "keywords": ["OpenShift", "CI/CD", "Git", "Jira"]
+    },
+    {
+      "name": "Engineering Practices",
+      "keywords": ["Agile", "Code Reviews", "System Design", "Production Support"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Advanced"
+    }
+  ],
+  "interests": [],
+  "references": [],
+  "projects": []
+}

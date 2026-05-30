@@ -1,5 +1,90 @@
 ---
 import Section from "@/components/Section.astro";
+
+const { cv, lang } = Astro.props;
+const { education } = cv;
+
+const title = lang === "es" ? "Educación" : "Education";
 ---
 
-<Section title="Education"></Section>
+<Section title={title}>
+  <ul>
+    {
+      education.map(({ institution, startDate, endDate, area, studyType, url, summary }: any) => {
+        const startYear = startDate ? new Date(startDate).getFullYear() : "";
+        let endYear = lang === "es" ? "Actualidad" : "Present";
+        if (endDate) {
+          if (endDate === "Actualidad" || endDate === "Present") {
+            endYear = lang === "es" ? "Actualidad" : "Present";
+          } else {
+            const parsedEnd = new Date(endDate);
+            endYear = isNaN(parsedEnd.getTime()) ? endDate : parsedEnd.getFullYear().toString();
+          }
+        }
+        const years = startYear ? `${startYear} - ${endYear}` : endYear;
+
+        return (
+          <li>
+            <article>
+              <header>
+                <div>
+                  <h3>
+                    {url ? (
+                      <a href={url} target="_blank" rel="noopener noreferrer" title={institution}>
+                        {institution}
+                      </a>
+                    ) : (
+                      institution
+                    )}
+                  </h3>
+                  <h4>{area} {studyType ? `(${studyType})` : ''}</h4>
+                  {summary && <p style="margin-top: 4px; font-size: 0.85rem; color: #666;">{summary}</p>}
+                </div>
+
+                <time>{years}</time>
+              </header>
+            </article>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Section>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  article h3 {
+    font-weight: 500;
+    color: #111;
+  }
+
+  article h3 a {
+    color: #111;
+  }
+
+  article h3 a:hover {
+    text-decoration: underline;
+  }
+
+  article h4 {
+    font-weight: 400;
+    color: #222;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: #555;
+  }
+</style>

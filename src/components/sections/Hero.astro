@@ -1,5 +1,4 @@
 ---
-import { basics } from "@cv";
 import Section from "@/components/Section.astro";
 import Mail from "@/icons/Mail.astro";
 import Phone from "@/icons/Phone.astro";
@@ -9,6 +8,8 @@ import X from "@/icons/X.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import GitHub from "@/icons/GitHub.astro";
 
+const { cv, lang } = Astro.props;
+const { basics } = cv;
 const { name, label, image, location, profiles, phone, email } = basics;
 const { city, region } = location;
 
@@ -18,10 +19,14 @@ const SOCIAL_ICONS: Record<string, any> = {
   X,
 };
 
-const linkedInInfo = profiles.find(({ network }) => network === "LinkedIn");
+const linkedInInfo = profiles.find(({ network }: any) => network === "LinkedIn");
 const linkedInUrl = linkedInInfo?.url;
 
-const printInfo = [email, phone, linkedInUrl].filter(Boolean).join("\u2022");
+const printInfo = [email, phone, linkedInUrl].filter(Boolean).join(" • ");
+
+const mailTitle = lang === "es" ? `Enviar un correo electrónico a ${name} al correo ${email}` : `Send an email to ${name} at ${email}`;
+const phoneTitle = lang === "es" ? `Llamar por teléfono a ${name} al número ${phone}` : `Call ${name} at ${phone}`;
+const getProfileTitle = (network: string) => lang === "es" ? `Visitar el perfil de ${name} en ${network}` : `Visit ${name}'s profile on ${network}`;
 ---
 
 <Section>
@@ -40,7 +45,7 @@ const printInfo = [email, phone, linkedInUrl].filter(Boolean).join("\u2022");
           email && (
             <a
               href={`mailto:${email}`}
-              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+              title={mailTitle}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -53,7 +58,7 @@ const printInfo = [email, phone, linkedInUrl].filter(Boolean).join("\u2022");
           phone && (
             <a
               href={`tel:${phone}`}
-              title={`Llamar por telefono a ${name} al número ${phone}`}
+              title={phoneTitle}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -62,13 +67,14 @@ const printInfo = [email, phone, linkedInUrl].filter(Boolean).join("\u2022");
           )
         }
         {
-          profiles.map(({ network, url, username }) => {
+          profiles.map(({ network, url }: any) => {
             const Icon = SOCIAL_ICONS[network];
+            if (!Icon) return null;
 
             return (
               <a
                 href={url}
-                title={`Visitar el perfil de ${name} en ${network}`}
+                title={getProfileTitle(network)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -79,9 +85,13 @@ const printInfo = [email, phone, linkedInUrl].filter(Boolean).join("\u2022");
         }
       </footer>
     </div>
-    <figure>
-      <img src={image} alt={`A of ${name}`} />
-    </figure>
+    {
+      image && (
+        <figure>
+          <img src={image} alt={`A picture of ${name}`} />
+        </figure>
+      )
+    }
   </div>
 </Section>
 

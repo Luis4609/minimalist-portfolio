@@ -1,0 +1,79 @@
+---
+import Section from "@/components/Section.astro";
+
+const { cv, lang } = Astro.props;
+const { certificates } = cv;
+
+const title = lang === "es" ? "Certificados" : "Certificates";
+---
+
+{certificates && certificates.length > 0 && (
+  <Section title={title}>
+    <ul>
+      {
+        certificates.map(({ name, date, issuer, url }: any) => {
+          const year = date ? new Date(date).getFullYear() : "";
+          return (
+            <li>
+              <article>
+                <header>
+                  <div>
+                    <h3>
+                      {url ? (
+                        <a href={url} target="_blank" rel="noopener noreferrer" title={name}>
+                          {name}
+                        </a>
+                      ) : (
+                        name
+                      )}
+                    </h3>
+                    <h4>{issuer}</h4>
+                  </div>
+                  <time>{year}</time>
+                </header>
+              </article>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Section>
+)}
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  article h3 {
+    font-weight: 500;
+    color: #111;
+  }
+
+  article h3 a {
+    color: #111;
+  }
+
+  article h3 a:hover {
+    text-decoration: underline;
+  }
+
+  article h4 {
+    font-weight: 400;
+    color: #555;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: #555;
+  }
+</style>

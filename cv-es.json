@@ -1,0 +1,140 @@
+{
+  "basics": {
+    "name": "Luis Monzón",
+    "label": "Backend Software Engineer | Distributed Systems | Event-Driven Architectures | Scalable Platforms",
+    "image": "",
+    "email": "luismonzon4609@gmail.com",
+    "phone": "+34 647564130",
+    "url": "https://github.com/tu-github",
+    "summary": "Ingeniero de Software Backend con más de 4 años de experiencia diseñando y escalando sistemas distribuidos orientados a eventos. Sólido enfoque en arquitecturas de alto rendimiento (Kafka, RabbitMQ) que procesan más de 100K eventos al día. Experiencia en la propiedad completa del ciclo de vida del software, incluyendo diseño, implementación, despliegue y soporte en producción. Apasionado por construir sistemas confiables y escalables con un alto rendimiento y excelencia operativa.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Madrid",
+      "countryCode": "ES",
+      "region": "España"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "tu-linkedin",
+        "url": "https://www.linkedin.com/in/tu-linkedin"
+      },
+      {
+        "network": "GitHub",
+        "username": "tu-github",
+        "url": "https://github.com/tu-github"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Minsait",
+      "position": "Software Engineer",
+      "url": "",
+      "startDate": "2024-07",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Lideré el ciclo de vida de desarrollo de extremo a extremo de una plataforma de facturación distribuida que procesa más de 100K eventos al día en producción.",
+        "Diseñé e implementé una arquitectura orientada a eventos utilizando Kafka y RabbitMQ para sistemas desacoplados y escalables.",
+        "Mejoré el rendimiento del sistema en un 15% mediante la optimización de payloads y el procesamiento de consumidores en paralelo.",
+        "Desarrollé microservicios para auditoría, facturación y gestión de documentos con un enfoque en confiabilidad y extensibilidad.",
+        "Diseñé e implementé patrones de resiliencia, incluyendo colas de mensajes no entregados (DLQ) y mecanismos de reintento.",
+        "Desplegué y operé servicios en OpenShift, garantizando alta disponibilidad y estabilidad en producción.",
+        "Colaboré con equipos multidisciplinares para definir requisitos y entregar funcionalidades listas para producción."
+      ]
+    },
+    {
+      "name": "Optimissa",
+      "position": "Junior Backend Engineer",
+      "url": "",
+      "startDate": "2022-06",
+      "endDate": "2024-07",
+      "summary": "",
+      "highlights": [
+        "Desarrollé sistemas backend para grandes instituciones financieras (BBVA, BME) en entornos de alta confiabilidad.",
+        "Implementé funcionalidades críticas para el negocio utilizando Java, Spring Boot y Python.",
+        "Participé en el ciclo de vida completo del desarrollo (SDLC): diseño, desarrollo, pruebas, despliegue y soporte en producción.",
+        "Mejoré la estabilidad del sistema identificando y resolviendo incidentes críticos en producción.",
+        "Colaboré con ingenieros senior en la depuración y en mejoras arquitectónicas."
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "UNIR",
+      "url": "",
+      "area": "Ingeniería Informática",
+      "studyType": "Grado (B.Sc.)",
+      "startDate": "2024",
+      "endDate": "2028",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "IES Clara del Rey",
+      "url": "https://iesclaradelrey.es/portal/index.php/es/",
+      "area": "Desarrollo de Aplicaciones Web",
+      "studyType": "Formación profesional",
+      "startDate": "2020",
+      "endDate": "2024",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "UPM",
+      "url": "https://www.upm.es/",
+      "area": "Matemáticas e Informática",
+      "studyType": "Grado",
+      "startDate": "",
+      "endDate": "",
+      "score": "",
+      "courses": [],
+      "summary": "3 años completados"
+    }
+  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Lenguajes",
+      "keywords": ["Java", "Python"]
+    },
+    {
+      "name": "Backend y Sistemas Distribuidos",
+      "keywords": ["Spring Boot", "Microservices", "Event-Driven Architecture"]
+    },
+    {
+      "name": "Mensajería y Streaming",
+      "keywords": ["Kafka", "RabbitMQ"]
+    },
+    {
+      "name": "Bases de Datos",
+      "keywords": ["SQL", "MongoDB"]
+    },
+    {
+      "name": "Cloud y DevOps",
+      "keywords": ["OpenShift", "CI/CD", "Git", "Jira"]
+    },
+    {
+      "name": "Prácticas de Ingeniería",
+      "keywords": ["Agile", "Code Reviews", "System Design", "Production Support"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Inglés",
+      "fluency": "Avanzado"
+    }
+  ],
+  "interests": [],
+  "references": [],
+  "projects": []
+}

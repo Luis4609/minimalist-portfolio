@@ -1,17 +1,27 @@
 ---
 import Section from "@/components/Section.astro";
 
-import { work } from "@cv";
+const { cv, lang } = Astro.props;
+const { work } = cv;
+
+const title = lang === "es" ? "Experiencia laboral" : "Work Experience";
 ---
 
-<Section title="Experience">
+<Section title={title}>
   <ul>
     {
-      work.map(({ name, startDate, endDate, position, summary }) => {
-        const startYear = new Date(startDate).getFullYear();
-        const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual";
-        const years = `${startYear} - ${endYear}`;
+      work.map(({ name, startDate, endDate, position, summary }: any) => {
+        const startYear = startDate ? new Date(startDate).getFullYear() : "";
+        let endYear = lang === "es" ? "Actualidad" : "Present";
+        if (endDate) {
+          if (endDate === "Actualidad" || endDate === "Present") {
+            endYear = lang === "es" ? "Actualidad" : "Present";
+          } else {
+            const parsedEnd = new Date(endDate);
+            endYear = isNaN(parsedEnd.getTime()) ? endDate : parsedEnd.getFullYear().toString();
+          }
+        }
+        const years = startYear ? `${startYear} - ${endYear}` : endYear;
 
         return (
           <li>
